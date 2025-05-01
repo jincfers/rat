@@ -1,0 +1,46 @@
+body {
+    font-family: "Winky Sans", sans-serif;
+    padding: 85px 0 0 0;
+}
+
+a {
+    color: #4444ff;
+}
+
+a:hover {
+    color: #3030bb;
+}
+
+header {
+    background-color: #69d4a8;
+    position: absolute;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    padding: 0;
+}
+
+.inline {
+    display: inline-block;
+    padding: 0;
+}
+
+#title {
+    width: 150px;
+    padding: 0 0 0 20px;
+}
+
+#Nav {
+    position: absolute;
+    right: 0px;
+    margin:  32px 20px 32px 0;
+    font-size: large;
+}
+
+#current {
+    color: #bdf0db;
+}
+
+#current:hover {
+    color: #a06c6c;
+}
