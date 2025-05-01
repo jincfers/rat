@@ -15,7 +15,7 @@ const storage = multer.diskStorage({
 });
 const upload = multer({storage: storage})
 
-const PORT = 22
+const PORT = 3000
 
 const db = new sqlite3.Database('./connection.db')
 
