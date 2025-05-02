@@ -221,10 +221,9 @@ function start() {
     if (intervalId) return; // Prevent multiple intervals
 
     intervalId = setInterval(async () => {
-        if (!FPSlimit(10)) return;
         FPScount()
         try {
-            getScreen();
+            await getScreen();
         } catch (error) {
             console.error('Loop error:', error);
         }
