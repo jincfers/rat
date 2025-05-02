@@ -4,6 +4,7 @@ let startTimeC;
 let LDTT;
 let MLDTT;
 let wait;
+let src
 
 //get ID
 function getIdFromUrl() {
@@ -41,8 +42,8 @@ async function getUserData() {
 
 function getScreen() {
     let displayImg = document.getElementById('display')
-    let src = '/images/' + sqlData.ID + '.jpg'
-    displayImg.setAttribute('src', src + '?ver=' + new Date().getTime());
+    src = '/images/' + sqlData.ID + '.jpg' + '?ver=' + new Date().getTime()
+    displayImg.setAttribute('src', src);
 }
 
 // function sendMouse () {
@@ -223,7 +224,9 @@ function start() {
     intervalId = setInterval(async () => {
         FPScount()
         try {
-            await getScreen();
+            setTimeout(() => {
+                getScreen();
+            }, 1000);
         } catch (error) {
             console.error('Loop error:', error);
         }
