@@ -58,7 +58,7 @@ app.get('/connected', (req, res) => {
 })
 
 app.get('/api/connectDataStream/:id', (req, res) => {
-    console.log(Date.now()+': /api/connectedDataStream/' + req.params.id + ' path recieved via get. Sending '+req.body+' to ' + req.connection.remoteAddress)
+    // console.log(Date.now()+': /api/connectedDataStream/' + req.params.id + ' path recieved via get. Sending '+req.body+' to ' + req.connection.remoteAddress)
     let id = req.params.id;
     let sql = `SELECT * FROM userData0 WHERE ID like ` + id;
     db.all(sql, [], (err, rows) => {
@@ -69,7 +69,7 @@ app.get('/api/connectDataStream/:id', (req, res) => {
 });
 
 app.post('/api/connectDataStream/:id', (req, res) => {
-    console.log(Date.now()+': /api/connectedDataStream/' + req.params.id + ' path recieved via post. Updating database with '+req.body+' from ' + req.connection.remoteAddress)
+    // console.log(Date.now()+': /api/connectedDataStream/' + req.params.id + ' path recieved via post. Updating database with '+req.body+' from ' + req.connection.remoteAddress)
     const data = req.body
     // console.log('Recieved the data:    '/* + data.ID*/ + data.mouseX + ' ' + data.mouseY + ' ' + data.mouseL + ' ' + data.mouseR + ' ' + data.mouseS +
     // ' ' + JSON.stringify(data.activeKeys) + ' ' + data.reciveScreenX + ' ' + data.reciveScreenY) //sucsess! returns the id  
@@ -98,7 +98,7 @@ app.get('/download', (req, res) => {
 })
 
 app.get('/cApi/sqlData/:id', (req, res) => {
-    console.log(Date.now()+': /cApi/sqlData/' + req.params.id + ' path recieved via get. Sending '+req.body+' to ' + req.connection.remoteAddress)
+    // console.log(Date.now()+': /cApi/sqlData/' + req.params.id + ' path recieved via get. Sending '+req.body+' to ' + req.connection.remoteAddress)
     let id = req.params.id;
     let sql = `SELECT * FROM userData0 WHERE ID like ` + id;
     db.all(sql, [], (err, rows) => {
@@ -109,7 +109,7 @@ app.get('/cApi/sqlData/:id', (req, res) => {
 })
 
 app.post('/cApi/sqlData/:id', (req, res) => {
-    console.log(Date.now()+': /cApi/sqlData/' + req.params.id + ' path recieved via post. Updating database with '+req.body+' from ' + req.connection.remoteAddress)
+    // console.log(Date.now()+': /cApi/sqlData/' + req.params.id + ' path recieved via post. Updating database with '+req.body+' from ' + req.connection.remoteAddress)
     const data = req.body
     // console.log(data)
     // console.log('Recieved the data:    '/* + data.ID*/ + data.mouseX + ' ' + data.mouseY + ' ' + data.mouseL + ' ' + data.mouseR + ' ' + data.mouseS +
@@ -133,7 +133,7 @@ app.post('/cApi/sqlData/:id', (req, res) => {
 });
 
 app.post('/cApi/img/:id', upload.single('test'), (req, res) => {
-    console.log(Date.now()+': /cApi/img/' + req.params.id + ' path recieved via post. Updating ' + req.params.id + '.jpg with image from ' + req.connection.remoteAddress)
+    // console.log(Date.now()+': /cApi/img/' + req.params.id + ' path recieved via post. Updating ' + req.params.id + '.jpg with image from ' + req.connection.remoteAddress)
     // console.log('File recieved')
     res.send('ok')
 })

@@ -4,7 +4,8 @@ let startTimeC;
 let LDTT;
 let MLDTT;
 let wait;
-let src
+let src;
+let timeSinceLastFrame;
 
 //get ID
 function getIdFromUrl() {
@@ -198,6 +199,7 @@ async function onLoad() {
     startTimeC = Date.now()
     LDTT = Date.now()
     MLDTT = Date.now()
+    timeSinceLastFrame = Date.now()
     wait = 10
     getScreen();
     (() => {
@@ -224,9 +226,10 @@ function start() {
     intervalId = setInterval(async () => {
         FPScount()
         try {
-            setTimeout(() => {
-                getScreen();
-            }, 1000);
+            if (Date.now() - timeSinceLastFrame > 1000) {
+                getScreen()
+                timeSinceLastFrame = Date.now()
+            }
         } catch (error) {
             console.error('Loop error:', error);
         }
