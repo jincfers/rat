@@ -117,11 +117,11 @@ app.post('/cApi/sqlData/:id', (req, res) => {
 
     let sql = `
     UPDATE userData0 
-    SET sendScreenX = ?, sendScreenY = ?, mouseLD = ?, MouseLU = ?, mouseRD = ?, MouseRU = ?, mouseS = ?, activeKeys = ? 
+    SET sendScreenX = ?, sendScreenY = ?, mouseLD = ?, mouseLU = ?, mouseRD = ?, mouseRU = ?, mouseS = ?, activeKeys = ? 
     WHERE ID = ?`
     // console.log(sql)
     db.run(sql, [
-        data.sendScreenX, data.sendScreenY, data.MouseLD, data.mouseLU, data.MouseRD, data.mouseRU, data.mouseS, data.activeKeys, data.ID
+        data.sendScreenX, data.sendScreenY, data.MouseLD, data.MouseLU, data.MouseRD, data.MouseRU, data.mouseS, data.activeKeys, data.ID
     ], function (err) {
         if (err) {
             console.error("DB update error:", err.message);
