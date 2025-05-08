@@ -56,8 +56,8 @@ function getScreen() {
 async function mouseTrack(event) {
     if (Date.now() - MLDTT >= 5) {
         await getUserData()
-        sqlData.mouseX = event.clientX * (65535 / sqlData.reciveScreenX)
-        sqlData.mouseY = event.clientY * (65535 / sqlData.reciveScreenY)
+        sqlData.mouseX = event.clientX * (sqlData.reciveScreenX / 65535)
+        sqlData.mouseY = event.clientY * (sqlData.reciveScreenY / 65535)
         // console.log(sqlData)//debug ----Rm console.log----
         // console.log(sqlData.mouseX);//debug ----Rm console.log----
         // console.log(sqlData.mouseY);//debug ----Rm console.log----
@@ -210,8 +210,8 @@ async function onLoad() {
         displayImg.setAttribute('height', h);
         console.log(w+h)
     })();
-    sqlData.reciveScreenX = window.innerWidth
-    sqlData.reciveScreenY = window.innerHeight
+    sqlData.reciveScreenX = window.screen.availWidth
+    sqlData.reciveScreenY = window.screen.availHeight
     start() // --- Debug --- uncomment after release
 }
 
