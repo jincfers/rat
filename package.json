@@ -1,6 +1,6 @@
 {
-  "name": "r.a.t.6.0",
-  "version": "1.0.0",
+  "name": "r.a.t",
+  "version": "6.0.0",
   "main": "app.js",
   "scripts": {
     "start": "node app.js"

@@ -56,8 +56,8 @@ function getScreen() {
 async function mouseTrack(event) {
     if (Date.now() - MLDTT >= 5) {
         await getUserData()
-        sqlData.mouseX = event.clientX * (sqlData.reciveScreenX / 65535)
-        sqlData.mouseY = event.clientY * (sqlData.reciveScreenY / 65535)
+        sqlData.mouseX = event.clientY * (65535 / sqlData.reciveScreenX)
+        sqlData.mouseY = event.clientX * (65535 / sqlData.reciveScreenY)
         // console.log(sqlData)//debug ----Rm console.log----
         // console.log(sqlData.mouseX);//debug ----Rm console.log----
         // console.log(sqlData.mouseY);//debug ----Rm console.log----

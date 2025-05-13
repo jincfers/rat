@@ -29,6 +29,9 @@ const db = new sqlite3.Database('./connection.db')
 // )`
 // db.run(sql)
 
+// let sql = 'Alter TABLE userData0 ADD mouseLU INTEGER'
+// db.run(sql)
+
 let sql0 = `SELECT * FROM userData0`;
 db.all(sql0, [], (err, rows) => {
     console.log(rows)
