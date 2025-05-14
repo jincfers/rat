@@ -16,7 +16,7 @@ function getIdFromUrl() {
 
 async function sendUserData() {
     const data = sqlData
-    console.log('sending: '+data)
+    // console.log('sending: '+data)
     // console.log(JSON.stringify(data))
     const response = await fetch('/api/connectDataStream/' + getIdFromUrl(), {
         method: 'POST',
@@ -54,13 +54,14 @@ function getScreen() {
 //     }, 25);
 // }
 async function mouseTrack(event) {
-    if (Date.now() - MLDTT >= 5) {
+    if (true) {
         await getUserData()
-        sqlData.mouseX = 65535 * (event.clientX / sqlData.reciveScreenX)
-        sqlData.mouseY = 65535 * (event.clientY / sqlData.reciveScreenY)
+        sqlData.mouseX = Math.min(65535, Math.max(0, 65535 * (event.clientX / window.innerWidth)));
+        sqlData.mouseY = Math.min(65535, Math.max(0, 65535 * (event.clientY / window.innerHeight)));
+
         // console.log(sqlData)//debug ----Rm console.log----
-        // console.log(sqlData.mouseX);//debug ----Rm console.log----
-        // console.log(sqlData.mouseY);//debug ----Rm console.log----
+        console.log("x:"+sqlData.mouseX);//debug ----Rm console.log----
+        console.log("y:"+sqlData.mouseY);//debug ----Rm console.log----
         await sendUserData()
         MLDTT = Date.now()
     }
